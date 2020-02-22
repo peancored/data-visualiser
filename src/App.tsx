@@ -1,8 +1,9 @@
 import React from 'react';
+import { AppContainer } from './App.styled';
 
 function App() {
   return (
-    <div className="App"></div>
+    <AppContainer></AppContainer>
   );
 }
 
