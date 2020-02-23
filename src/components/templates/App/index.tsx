@@ -1,9 +1,12 @@
 import React from 'react';
 import { AppContainer } from './styles';
+import { DataTable } from '../../molecules';
 
-function App() {
+const App: React.FunctionComponent = () => {
   return (
-    <AppContainer></AppContainer>
+    <AppContainer>
+      <DataTable></DataTable>
+    </AppContainer>
   );
 }
 
