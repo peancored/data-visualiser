@@ -1,13 +1,8 @@
-import React from 'react';
-import { AppContainer } from './styles';
-import { DataTable } from '../../molecules';
+import React from "react";
+import { Visualiser } from "../../organisms";
 
 const App: React.FunctionComponent = () => {
-  return (
-    <AppContainer>
-      <DataTable></DataTable>
-    </AppContainer>
-  );
-}
+  return <Visualiser />;
+};
 
 export default App;

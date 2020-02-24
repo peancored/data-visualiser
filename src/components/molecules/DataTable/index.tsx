@@ -1,65 +1,38 @@
-import React from 'react';
-import { Column, Table } from 'react-virtualized';
-import 'react-virtualized/styles.css';
-import { Props } from './types';
-import data from '../../../data/all.json';
+import React from "react";
+import { Column, Table, AutoSizer } from "react-virtualized";
+import "react-virtualized/styles.css";
+import { Props } from "./types";
+import { Wrapper } from "./styles";
 
-const DataTable: React.FunctionComponent = (props: Props) => {
-  const displayedColumns = [
-    {
-      label: "Department Family",
-      dataKey: "departmentFamily"
-    },
-    {
-      label: "Entity",
-      dataKey: "entity"
-    },
-    {
-      label: "Date",
-      dataKey: "date"
-    },
-    {
-      label: "Expense Type",
-      dataKey: "expenseType"
-    },
-    {
-      label: "Expense Area",
-      dataKey: "expenseArea"
-    },
-    {
-      label: "Supplier",
-      dataKey: "supplier"
-    },
-    {
-      label: "Transaction Number",
-      dataKey: "transactionNumber"
-    },
-    {
-      label: "Amount",
-      dataKey: "amount"
-    },
-    {
-      label: "Invoice Currency Unit",
-      dataKey: "invoiceCurrencyUnit"
-    }
-  ];
+const DataTable: React.FunctionComponent<Props> = (props: Props) => {
+  const { data, displayedColumns, className } = props;
 
   const columns = displayedColumns.map((displayedColumn, index) => (
-    <Column key={index} label={displayedColumn.label} dataKey={displayedColumn.dataKey} width={300} />
+    <Column
+      key={index}
+      label={displayedColumn.label}
+      dataKey={displayedColumn.dataKey}
+      width={300}
+    />
   ));
 
   return (
-    <div>
-      <Table
-          width={900}
-          height={300}
-          headerHeight={20}
-          rowHeight={30}
-          rowCount={data.length}
-          rowGetter={({index}) => data[index]}>
-          {columns}
-        </Table>
-    </div>
+    <Wrapper className={className}>
+      <AutoSizer>
+        {({ width, height }) => (
+          <Table
+            width={width}
+            height={height}
+            headerHeight={20}
+            rowHeight={30}
+            rowCount={data.length}
+            rowGetter={({ index }) => data[index]}
+          >
+            {columns}
+          </Table>
+        )}
+      </AutoSizer>
+    </Wrapper>
   );
 };
 

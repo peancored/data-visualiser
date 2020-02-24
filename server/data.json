@@ -1,4 +1,5 @@
-[
+{
+  "transactions": [
   {
     "departmentFamily": "BIS",
     "entity": "EPSRC",
@@ -90596,3 +90597,4 @@
     "invoiceCurrencyUnit": "GBP"
   }
 ]
+}
